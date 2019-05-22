@@ -23,7 +23,7 @@ class App extends Component {
         <form className="main_form" onSubmit={this.changeSub}>
           <input type="text" id="title" name="title" placeholder="title"/>
           <input type="text" id="message" name="message" placeholder="message" />
-          <button type="SUBMIT" id="btn" >Add note</button>
+          <button type="submit" id="btn" >Add note</button>
         </form>
         <div className="notes_section" id="notes">
           {/* {this.state.showdata} */}
