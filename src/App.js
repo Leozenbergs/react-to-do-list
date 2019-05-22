@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(){
+    super();
+    this.displayData = "";
+    this.changeSub = this.changeSub.bind(this);
+  }
+  changeSub(e) {
+    let title = document.getElementById('title').value;
+    let message = document.getElementById('message').value;
+
+    document.getElementById('notes').innerHTML += `<div className="note_body"><pre><div className="note_header">${title}</div><div className="note_message">${message}</div></pre></div>`;
+    e.preventDefault();
+  }
+  
+
+
+  render(){
+    return (
+      <div className="App">
+
+        <form className="main_form" onSubmit={this.changeSub}>
+          <input type="text" id="title" name="title" placeholder="title"/>
+          <input type="text" id="message" name="message" placeholder="message" />
+          <button type="SUBMIT" id="btn" >Add note</button>
+        </form>
+        <div className="notes_section" id="notes">
+          {/* {this.state.showdata} */}
+        </div>
+
+      </div>
+    );
+  }
 }
 
 export default App;
