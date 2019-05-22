@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './App.css';
 
 class App extends Component {
   constructor(){
@@ -21,9 +22,9 @@ class App extends Component {
       <div className="App">
 
         <form className="main_form" onSubmit={this.changeSub}>
-          <input type="text" id="title" name="title" placeholder="title"/>
-          <input type="text" id="message" name="message" placeholder="message" />
-          <button type="submit" id="btn" >Add note</button>
+          <input type="text" id="title" className="no-border" name="title" placeholder="title"/>
+          <textarea id="message" rows="4" className="no-border" placeholder="Message"></textarea>
+          <button type="submit" className="main_btn no-border c-pointer" id="btn" >Add note</button>
         </form>
         <div className="notes_section" id="notes">
           {/* {this.state.showdata} */}
