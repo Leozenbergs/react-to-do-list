@@ -6,13 +6,30 @@ class App extends Component {
     super();
     this.displayData = "";
     this.changeSub = this.changeSub.bind(this);
+    this.removeNote = this.removeNote.bind(this);
+    this.msgAlert = this.msgAlert.bind(this);
+  }
+  msgAlert(){
+    document.getElementById('note_form').innerHTML+="<h3 style='color: red'> Please enter the respectives field values</h3>";
+  }
+  removeNote(e){
+    var tgt = e.target;
+    if (tgt.tagName === "SPAN") {
+      tgt.parentNode.parentNode.remove();
+    }
   }
   changeSub(e) {
     let title = document.getElementById('title').value;
     let message = document.getElementById('message').value;
 
-    document.getElementById('notes').innerHTML += `<div className="note_body"><pre><div className="note_header">${title}</div><div className="note_message">${message}</div></pre></div>`;
+    title != '' && message != ''? document.getElementById('notes').innerHTML += `<div class="note_body"><div class="note_header">${title}<span class="pull-right c-pointer">&times;</span></div><div class="note_message">${message}</div></div>`: this.msgAlert();
     e.preventDefault();
+  }
+  componentDidMount(){
+    document.addEventListener('click', (e)=>{
+      this.removeNote(e);
+    });
+    
   }
   
 
@@ -21,9 +38,9 @@ class App extends Component {
     return (
       <div className="App">
 
-        <form className="main_form" onSubmit={this.changeSub}>
-          <input type="text" id="title" className="no-border" name="title" placeholder="title"/>
-          <textarea id="message" rows="4" className="no-border" placeholder="Message"></textarea>
+        <form className="main_form" id="note_form" onSubmit={this.changeSub}>
+          <input type="text" id="title" name="title" placeholder="title"/>
+          <textarea id="message" rows="4" placeholder="Message"></textarea>
           <button type="submit" className="main_btn no-border c-pointer" id="btn" >Add note</button>
         </form>
         <div className="notes_section" id="notes">
