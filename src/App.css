@@ -1,13 +1,37 @@
 :root{
     --main-color: #1D2553;
 }
+.text-center{
+    text-align: center;
+}
 body{
     color: #333;
 }
 .c-pointer{
     cursor: pointer;
 }
-
+.side_nav{
+    position: fixed;
+    left: -100px;
+    top: 0px;
+    background: var(--main-color);
+    width: 150px;
+    transition: all .4s ease-in-out;
+    height: 100%;
+}
+.side_nav.active{
+    left: 0px;
+}
+.side_nav a{
+    color: #fff;
+    text-decoration: none;
+}
+.side_nav ul{
+    list-style: none;
+}
+.side_nav ul li{
+    padding: 10px;
+}
 .no-border{
     border: 0px;
 }
