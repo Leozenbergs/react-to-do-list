@@ -3,20 +3,22 @@ import Nav from './Nav';
 import './App.css';
 
 class App extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.displayData = "";
     this.changeSub = this.changeSub.bind(this);
     this.removeNote = this.removeNote.bind(this);
     this.msgAlert = this.msgAlert.bind(this);
     this.toggleNav = this.toggleNav.bind(this);
   }
+  
   msgAlert(){
     document.getElementById('note_form').innerHTML+="<h3 style='color: red'> Please enter the respectives field values</h3>";
   }
   toggleNav(){
     let nav = document.getElementById('nav');
     nav.classList.contains('active')?nav.classList.remove('active') : nav.classList.add('active');
+    document.getElementById('menu').parentElement.classList.contains("active")?document.getElementById('menu').classList.add("change"):document.getElementById('menu').classList.remove("change");
   }
   removeNote(e){
     var tgt = e.target;
@@ -38,6 +40,9 @@ class App extends Component {
     document.getElementById('nav').addEventListener('click', ()=>{
       this.toggleNav();
     });
+    
+    // this.alternateBtn();
+    
   }
   
 

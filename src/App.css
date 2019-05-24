@@ -1,18 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 :root{
     --main-color: #1D2553;
 }
+/* Menu icon */
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+#menu{
+    position: relative;
+    right: -170px;
+}
+/*  */
 .text-center{
     text-align: center;
 }
 body{
     color: #333;
+    font-family: 'Open Sans', Verdana, sans-serif;
 }
 .c-pointer{
     cursor: pointer;
 }
 .side_nav{
     position: fixed;
-    left: -100px;
+    left: -125px;
     top: 0px;
     background: var(--main-color);
     width: 150px;
@@ -63,6 +90,7 @@ input, .main_btn, #message{
     background: var(--main-color);
     color:#fff;
     width: 100%;
+    text-transform: uppercase;
 }
 .main_form *{
     display: block;
