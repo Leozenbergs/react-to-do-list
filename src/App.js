@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import Nav from './Nav';
+// import Nav from './Nav';
 import './App.css';
+import { BrowserRouter as Router, Route, Link, browserHistory} from "react-router-dom";
+
 
 class App extends Component {
   constructor(props){
@@ -9,17 +11,17 @@ class App extends Component {
     this.changeSub = this.changeSub.bind(this);
     this.removeNote = this.removeNote.bind(this);
     this.msgAlert = this.msgAlert.bind(this);
-    this.toggleNav = this.toggleNav.bind(this);
+    // this.toggleNav = this.toggleNav.bind(this);
   }
   
   msgAlert(){
     document.getElementById('note_form').innerHTML+="<h3 style='color: red'> Please enter the respectives field values</h3>";
   }
-  toggleNav(){
-    let nav = document.getElementById('nav');
-    nav.classList.contains('active')?nav.classList.remove('active') : nav.classList.add('active');
-    document.getElementById('menu').parentElement.classList.contains("active")?document.getElementById('menu').classList.add("change"):document.getElementById('menu').classList.remove("change");
-  }
+  // toggleNav(){
+  //   let nav = document.getElementById('nav');
+  //   nav.classList.contains('active')?nav.classList.remove('active') : nav.classList.add('active');
+  //   document.getElementById('menu').parentElement.classList.contains("active")?document.getElementById('menu').classList.add("change"):document.getElementById('menu').classList.remove("change");
+  // }
   removeNote(e){
     var tgt = e.target;
     if (tgt.tagName === "SPAN") {
@@ -37,9 +39,9 @@ class App extends Component {
     document.addEventListener('click', (e)=>{
       this.removeNote(e);
     });
-    document.getElementById('nav').addEventListener('click', ()=>{
-      this.toggleNav();
-    });
+    // document.getElementById('nav').addEventListener('click', ()=>{
+    //   this.toggleNav();
+    // });
     
     // this.alternateBtn();
     
@@ -50,7 +52,7 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        <Nav onClick={this.toggleNav} />
+        {/* <Nav /> */}
         <h2 className="text-center">Add notes</h2>
         <form className="main_form" id="note_form" onSubmit={this.changeSub}>
           <input type="text" id="title" name="title" placeholder="title"/>

@@ -26,6 +26,15 @@
     position: relative;
     right: -170px;
 }
+#menu_list-item{
+    padding: 0px !important;
+}
+#menu_list-item li *{color: #fff;text-decoration: none;}
+#menu_list-item li:hover, #menu_list-item li:hover * {
+    background: #fff;
+    color: var(--main-color);
+}
+
 /*  */
 .text-center{
     text-align: center;
@@ -49,7 +58,7 @@ body{
 .side_nav.active{
     left: 0px;
 }
-.side_nav a{
+.side_nav{
     color: #fff;
     text-decoration: none;
 }

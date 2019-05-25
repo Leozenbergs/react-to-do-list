@@ -1,23 +1,80 @@
-import React from 'react';
+import React from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import App from './App';
 
-const Nav = () => {
-    
+function Favorites() {
     return (
-        <div className="side_nav c-pointer" id="nav" key="1">
+        <div className="Favorites">
             
-            <div id="menu">
+            <h2 className="text-center">Favorites</h2>
+
+        </div>
+    );
+    
+}
+function toggleNav(){
+    let nav = document.getElementById('nav');
+    nav.classList.contains('active')?nav.classList.remove('active') : nav.classList.add('active');
+    document.getElementById('menu').parentElement.classList.contains("active")?document.getElementById('menu').classList.add("change"):document.getElementById('menu').classList.remove("change");
+}
+function Lists(){
+    return (
+        <div className="Lists">
+            
+            <h2 className="text-center">Lists</h2>
+
+        </div>
+    );
+}
+function Recent(){
+
+    return (
+        
+        <div className="Favorites">
+            
+            <h2 className="text-center">Recent</h2>
+
+        </div>
+        
+    )
+}
+
+
+
+function Nav() {
+  return (
+    <Router>
+      <div>
+        
+        <nav id="nav" className="side_nav">
+            <div id="menu" onClick={toggleNav}>
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
             </div>
-
-            <ul>
-                <li><a href="">Recent</a></li>
-                <li><a href="">Lists</a></li>
-                <li><a href="">Favorites</a></li>
+            <ul id="menu_list-item">
+                <li>
+                    <Link to="/">Home</Link>
+                </li>
+                <li>
+                    <Link to="/favorites/">Favorites</Link>
+                </li>
+                <li>
+                    <Link to="/lists/">Lists</Link>
+                </li>
+                <li>
+                    <Link to="/recent/">Recent</Link>
+                </li>
             </ul>
-            
-        </div>
-    );
+        </nav>
+
+        <Route path="/" exact component={App} />
+        <Route path="/favorites/" component={Favorites} />
+        <Route path="/lists/" component={Lists} />
+        <Route path="/recent/" component={Recent} />
+      </div>
+    </Router>
+  );
 }
+
 export default Nav;
