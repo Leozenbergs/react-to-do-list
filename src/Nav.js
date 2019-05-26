@@ -1,45 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import App from './App';
+import Favorites from './Favorites';
+import Lists from './Lists';
+import Recent from './Recent';
 
-function Favorites() {
-    return (
-        <div className="Favorites">
-            
-            <h2 className="text-center">Favorites</h2>
-
-        </div>
-    );
-    
-}
 function toggleNav(){
     let nav = document.getElementById('nav');
     nav.classList.contains('active')?nav.classList.remove('active') : nav.classList.add('active');
     document.getElementById('menu').parentElement.classList.contains("active")?document.getElementById('menu').classList.add("change"):document.getElementById('menu').classList.remove("change");
 }
-function Lists(){
-    return (
-        <div className="Lists">
-            
-            <h2 className="text-center">Lists</h2>
-
-        </div>
-    );
-}
-function Recent(){
-
-    return (
-        
-        <div className="Favorites">
-            
-            <h2 className="text-center">Recent</h2>
-
-        </div>
-        
-    )
-}
-
-
 
 function Nav() {
   return (

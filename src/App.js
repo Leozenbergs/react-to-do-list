@@ -17,11 +17,6 @@ class App extends Component {
   msgAlert(){
     document.getElementById('note_form').innerHTML+="<h3 style='color: red'> Please enter the respectives field values</h3>";
   }
-  // toggleNav(){
-  //   let nav = document.getElementById('nav');
-  //   nav.classList.contains('active')?nav.classList.remove('active') : nav.classList.add('active');
-  //   document.getElementById('menu').parentElement.classList.contains("active")?document.getElementById('menu').classList.add("change"):document.getElementById('menu').classList.remove("change");
-  // }
   removeNote(e){
     var tgt = e.target;
     if (tgt.tagName === "SPAN") {
@@ -38,13 +33,7 @@ class App extends Component {
   componentDidMount(){
     document.addEventListener('click', (e)=>{
       this.removeNote(e);
-    });
-    // document.getElementById('nav').addEventListener('click', ()=>{
-    //   this.toggleNav();
-    // });
-    
-    // this.alternateBtn();
-    
+    });    
   }
   
 
@@ -52,7 +41,6 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        {/* <Nav /> */}
         <h2 className="text-center">Add notes</h2>
         <form className="main_form" id="note_form" onSubmit={this.changeSub}>
           <input type="text" id="title" name="title" placeholder="title"/>
